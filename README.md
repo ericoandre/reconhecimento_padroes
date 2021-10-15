@@ -1,1 +1,1 @@
-# reconhecimento_padroes
+# Reconhecimento de Padrões
