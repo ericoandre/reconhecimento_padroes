@@ -1,3 +1,2 @@
 # Reconhecimento de Padrões
 
-teste

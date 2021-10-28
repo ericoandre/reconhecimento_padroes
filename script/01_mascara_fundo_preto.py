@@ -3,7 +3,6 @@ import numpy as np
 import os, cv2
 
 def getBaseFolders(base_path):
-  """ retorna uma lista com todos os arquivos do caminho informado com seus respectivos path"""
   return [os.path.join(base_path, folder) for folder in os.listdir(base_path) if os.path.isdir( os.path.join(base_path, folder))]
 
 def maskImage(image_path, out_path):
@@ -20,11 +19,11 @@ def maskClassesImages(base_path):
   base_folders = getBaseFolders(base_path)
 
   for path in base_folders:
-    print( "woking in", path )
-    print("Get Images...")
+    print( "trabalhando dentro de ", path )
+    print("pegando Imagens...")
     image_paths = list( paths.list_images( path ) )
     
-    print("Creating output list names...")
+    print("Criando a lista de nomes de saida...")
     new_path = base_path + "_mascara"
     new_path = os.path.join(new_path, os.path.basename(path))
     os.makedirs(new_path, exist_ok=True)
@@ -33,11 +32,11 @@ def maskClassesImages(base_path):
     print("Conveting Images in '{}'... \n\n".format(new_path))
     for index in range(len(image_paths)):
       maskImage(image_paths[index], out_image_paths[index])
-  print("Finish maskClassesImages!!!")
+  print("Segmentacao terminada!!!")
 
 
 if __name__ == '__main__':
   base_path = '..{}imagens'.format(os.sep)
 
-  print("Run Classes de Images com mascara")
+  print("Rodando Segmentacao")
   maskClassesImages(base_path=base_path)
